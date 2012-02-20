@@ -9,9 +9,7 @@ import gdbm
 opener = urllib2.build_opener()
 urllib2.install_opener(opener)
 
-#api = twitter.Api(consumer_key="", consumer_secret="",access_token_key="", access_token_secret="",proxy ={})
-api = twitter.Api(consumer_key="P6J5KGTWLvdArPFUg8eKBw", consumer_secret="s9QMl8EznVAfyG1AzpN0B0IiBjxZCX1uITzrjmAj6M",access_token_key="70108357-QkLkIJC6NVhrvnARuE7ofLm2Tmtcv6qOeHbVpm1By", access_token_secret="Z9adD6B0l379po2asWEwxPIKagpQfSTDmyak5zbPE",proxy ={'http':'http://f2010059:j@10.1.9.36:8080',
-'https' : 'https://f2010059:j@10.1.9.36:8080' })
+api = twitter.Api(consumer_key="", consumer_secret="",access_token_key="", access_token_secret="",proxy ={})
 
 def get_proxy_urllib(Proxy=None):
     if not Proxy:
@@ -221,7 +219,7 @@ def show_timeline(timeline, hashtag_db=None, tweet_db = None, hashtag_list=None)
                 if not hashtag_list[j].startswith('#'):
                     hashtag_list[j]='#'+hashtag_list[j]
                 if hashtag_list[j] in res:
-                    print "opening",hashtag_list[j]+"_hashtag"
+             #      print "opening",hashtag_list[j]+"_hashtag"
                     py_db = gdbm.open(hashtag_list[j]+'_hashtag','c')
                     py_db[str(timeline[i].id)] = repr(tweet)
                     py_db.close()
